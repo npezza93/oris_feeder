@@ -17,11 +17,11 @@ void update_buttons() {
   bool button_b_pressed = buttons.isPressed(1);
 
   if (button_a_pressed && !button_previously_pressed) {
-    stepMotor(TOTAL_STEPS / 2, 0);
+    step_motor(TOTAL_STEPS / 2, 0);
   }
 
   if (button_b_pressed && !button_previously_pressed) {
-    stepMotor(TOTAL_STEPS / 2, 1);
+    step_motor(TOTAL_STEPS / 2, 1);
   }
 
   button_previously_pressed = button_a_pressed || button_b_pressed;

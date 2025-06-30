@@ -15,10 +15,10 @@ const FeedingTime times[] = {
 int current_feeding_time;
 
 int find_current_feeding_time() {
-  timeClient.update();
+  time_client.update();
 
-  int current_hour = timeClient.getHours();
-  int current_minute = timeClient.getMinutes();
+  int current_hour = time_client.getHours();
+  int current_minute = time_client.getMinutes();
   int current_minutes = current_hour * 60 + current_minute;
 
   int closest_index = -1;
@@ -49,7 +49,7 @@ void load_current_feeding_time() {
 void update_feeding_time() {
   int time = find_current_feeding_time();
   if (time != current_feeding_time) {
-    stepMotor(TOTAL_STEPS / 2, 0);
+    step_motor(TOTAL_STEPS / 2, 0);
     set_current_feeding_time(time);
   }
 }

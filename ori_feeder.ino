@@ -8,7 +8,7 @@
 #include "buttons.h"
 #include "scale.h"
 
-NTPClient timeClient(ntpUDP, "pool.ntp.org", -4 * 3600, 60000);  // Eastern Time (UTC-4)
+NTPClient time_client(ntpUDP, "pool.ntp.org", -4 * 3600, 60000);  // Eastern Time (UTC-4)
 
 Scale scale1(1, 52, 53, 19526.0 / 28, 0);
 Scale scale2(2, 13, 14, 28.0 / 28, 0);
@@ -18,10 +18,10 @@ void setup() {
   Serial.begin(57600);
 
   Modulino.begin();
-  loadStepper();
+  load_stepper();
   load_wifi();
-  timeClient.begin();
-  timeClient.update();
+  time_client.begin();
+  time_client.update();
 
   load_buttons();
 
@@ -33,7 +33,7 @@ void setup() {
 }
 
 void loop() {
-  timeClient.update();
+  time_client.update();
   update_buttons();
   update_feeding_time();
 

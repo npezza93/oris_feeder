@@ -1,75 +1,31 @@
 #include "stepper.h"
 
-ModulinoBuzzer buzzer;
+void load_stepper() {
+  pinMode(DIRECTION_PIN, OUTPUT);
+  pinMode(STEP_PIN, OUTPUT);
+  pinMode(SLEEP_PIN, OUTPUT);
+  pinMode(MS1, OUTPUT);
+  pinMode(MS2, OUTPUT);
+  pinMode(MS3, OUTPUT);
 
-const int directionPin = 2;
-const int stepPin = 3;
-const int sleepPin = 4;
-const int stepDelayMicros = 50;
-
-const int ms1 = 5;
-const int ms2 = 6;
-const int ms3 = 7;
-
-void loadStepper() {
-  buzzer.begin();
-  pinMode(directionPin, OUTPUT);
-  pinMode(stepPin, OUTPUT);
-  pinMode(sleepPin, OUTPUT);
-  pinMode(ms1, OUTPUT);
-  pinMode(ms2, OUTPUT);
-  pinMode(ms3, OUTPUT);
-
-  digitalWrite(ms1, HIGH);
-  digitalWrite(ms2, HIGH);
-  digitalWrite(ms3, HIGH);
-  digitalWrite(sleepPin, LOW);
+  digitalWrite(MS1, HIGH);
+  digitalWrite(MS2, HIGH);
+  digitalWrite(MS3, HIGH);
+  digitalWrite(SLEEP_PIN, LOW);
 }
 
-void stepMotor(int steps, int direction) {
-  loadStepper();
-  digitalWrite(directionPin, direction ? LOW : HIGH);
-  digitalWrite(sleepPin, HIGH);
+void step_motor(int steps, int direction) {
+  load_stepper();
+  digitalWrite(DIRECTION_PIN, direction ? LOW : HIGH);
+  digitalWrite(SLEEP_PIN, HIGH);
 
   delay(2);
 
   for (int i = 0; i < steps; i++) {
-    digitalWrite(stepPin, HIGH);
-    delayMicroseconds(stepDelayMicros);
-    digitalWrite(stepPin, LOW);
-    delayMicroseconds(stepDelayMicros);
+    digitalWrite(STEP_PIN, HIGH);
+    delayMicroseconds(STEP_DELAY);
+    digitalWrite(STEP_PIN, LOW);
+    delayMicroseconds(STEP_DELAY);
   }
-  digitalWrite(sleepPin, LOW);
-
-  int noteDuration = 150;
-
-  // Notes: E E - E - C E G - G
-  buzzer.tone(659, noteDuration);  // E5
-  delay(noteDuration);
-  buzzer.noTone();
-  delay(noteDuration / 2);
-
-  buzzer.tone(659, noteDuration);  // E5
-  delay(noteDuration);
-  buzzer.noTone();
-  delay(noteDuration / 2);
-
-  buzzer.tone(659, noteDuration);  // E5
-  delay(noteDuration);
-  buzzer.noTone();
-  delay(noteDuration);
-
-  buzzer.tone(523, noteDuration);  // C5
-  delay(noteDuration);
-  buzzer.noTone();
-  delay(noteDuration / 2);
-
-  buzzer.tone(659, noteDuration);  // E5
-  delay(noteDuration);
-  buzzer.noTone();
-  delay(noteDuration / 2);
-
-  buzzer.tone(784, noteDuration);  // G5
-  delay(noteDuration * 1.5);
-  buzzer.noTone();
+  digitalWrite(SLEEP_PIN, LOW);
 }

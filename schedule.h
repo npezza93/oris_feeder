@@ -4,7 +4,7 @@
 #include <Arduino.h>
 #include <NTPClient.h>
 
-extern NTPClient timeClient;
+extern NTPClient time_client;
 
 struct FeedingTime {
   int hour;
