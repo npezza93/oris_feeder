@@ -4,7 +4,7 @@
 
 #include "stepper.h"
 #include "wifi.h"
-#include "compartments.h"
+#include "schedule.h"
 #include "buttons.h"
 #include "scale.h"
 
@@ -25,7 +25,7 @@ void setup() {
 
   load_buttons();
 
-  loadCurrentCompartment();
+  load_current_feeding_time();
 
   scale1.begin();
   scale2.begin();
@@ -34,8 +34,8 @@ void setup() {
 
 void loop() {
   timeClient.update();
-  updateCompartment();
   update_buttons();
+  update_feeding_time();
 
   Serial.println(scale1.read(), 5);
   delay(1000);
