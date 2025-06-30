@@ -1,0 +1,9 @@
+Arduino_HS300x
+Arduino_LPS22HB
+Arduino_LSM6DSOX
+ArduinoGraphics
+HX711 Arduino Library
+Modulino
+NTPClient
+STM32duino VL53L4CD
+STM32duino VL53L4ED
