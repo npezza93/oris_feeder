@@ -4,7 +4,7 @@
 #include <Arduino.h>
 #include <Modulino.h>
 
-void loadButtons();
-void updateButtons();
+void load_buttons();
+void update_buttons();
 
 #endif

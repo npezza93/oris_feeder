@@ -3,26 +3,26 @@
 
 ModulinoButtons buttons;
 
-bool buttonPreviouslyPressed = false;
+bool button_previously_pressed = false;
 
-void loadButtons() {
+void load_buttons() {
   buttons.begin();
   buttons.setLeds(true, true, false);
 }
 
-void updateButtons() {
+void update_buttons() {
   buttons.update();
 
-  bool buttonAPressed = buttons.isPressed(0);
-  bool buttonBPressed = buttons.isPressed(1);
+  bool button_a_pressed = buttons.isPressed(0);
+  bool button_b_pressed = buttons.isPressed(1);
 
-  if (buttonAPressed && !buttonPreviouslyPressed) {
+  if (button_a_pressed && !button_previously_pressed) {
     stepMotor(TOTAL_STEPS / 2, 0);
   }
 
-  if (buttonBPressed && !buttonPreviouslyPressed) {
+  if (button_b_pressed && !button_previously_pressed) {
     stepMotor(TOTAL_STEPS / 2, 1);
   }
 
-  buttonPreviouslyPressed = buttonAPressed || buttonBPressed;
+  button_previously_pressed = button_a_pressed || button_b_pressed;
 }

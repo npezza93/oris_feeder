@@ -3,7 +3,7 @@
 
 WiFiUDP ntpUDP;
 
-void loadWifi() {
+void load_wifi() {
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);

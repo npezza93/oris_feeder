@@ -7,6 +7,6 @@
 
 extern WiFiUDP ntpUDP;
 
-void loadWifi();
+void load_wifi();
 
 #endif

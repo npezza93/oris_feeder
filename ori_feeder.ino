@@ -19,11 +19,11 @@ void setup() {
 
   Modulino.begin();
   loadStepper();
-  loadWifi();
+  load_wifi();
   timeClient.begin();
   timeClient.update();
 
-  loadButtons();
+  load_buttons();
 
   loadCurrentCompartment();
 
@@ -34,8 +34,8 @@ void setup() {
 
 void loop() {
   timeClient.update();
-  updateButtons();
   updateCompartment();
+  update_buttons();
 
   Serial.println(scale1.read(), 5);
   delay(1000);
