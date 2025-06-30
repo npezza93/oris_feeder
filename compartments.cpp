@@ -1,6 +1,5 @@
 #include "compartments.h"
 #include "stepper.h"
-#include "clock.h"
 
 const Compartment compartments[] = {
   {1, 30},
@@ -57,5 +56,4 @@ void updateCompartment() {
 
 void setCurrentCompartment(int index) {
   currentCompartment = index;
-  displayDigit(currentCompartment, 0, 0);
 }

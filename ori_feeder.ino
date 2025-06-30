@@ -2,8 +2,6 @@
 #include <NTPClient.h>
 #include "HX711.h"
 
-
-#include "clock.h"
 #include "stepper.h"
 #include "wifi.h"
 #include "compartments.h"
@@ -23,7 +21,6 @@ void setup() {
   timeClient.begin();
   timeClient.update();
 
-  loadClock();
   loadButtons();
 
   loadCurrentCompartment();
