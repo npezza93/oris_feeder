@@ -3,7 +3,7 @@
 
 #include <Arduino.h>
 #include <WiFiUdp.h>
-#include <WiFiS3.h>
+#include <WiFi.h>
 
 extern WiFiUDP ntpUDP;
 

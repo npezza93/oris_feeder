@@ -7,3 +7,4 @@ Modulino
 NTPClient
 STM32duino VL53L4CD
 STM32duino VL53L4ED
+WiFi
