@@ -7,9 +7,9 @@ const int stepPin = 3;
 const int sleepPin = 4;
 const int stepDelayMicros = 50;
 
-const int ms1 = 8;
-const int ms2 = 9;
-const int ms3 = 10;
+const int ms1 = 5;
+const int ms2 = 6;
+const int ms3 = 7;
 
 void loadStepper() {
   buzzer.begin();
