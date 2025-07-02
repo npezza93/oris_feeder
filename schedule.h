@@ -13,7 +13,7 @@ struct FeedingTime {
 
 int find_current_feeding_time();
 void load_current_feeding_time();
-void set_current_feeding_time(int index);
-void update_feeding_time();
+bool feeding_time_changed();
+void set_current_feeding_time();
 
 #endif

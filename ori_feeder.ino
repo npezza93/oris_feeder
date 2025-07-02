@@ -35,7 +35,6 @@ void setup() {
 void loop() {
   time_client.update();
   update_buttons();
-  update_feeding_time();
 
   Serial.println(scale1.read(), 5);
   delay(1000);

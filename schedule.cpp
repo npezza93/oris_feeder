@@ -43,18 +43,15 @@ int find_current_feeding_time() {
 }
 
 void load_current_feeding_time() {
-  set_current_feeding_time(find_current_feeding_time());
+  set_current_feeding_time();
 }
 
-void update_feeding_time() {
+bool feeding_time_changed() {
   int time = find_current_feeding_time();
-  if (time != current_feeding_time) {
-    step_motor(TOTAL_STEPS / 2, 0);
-    set_current_feeding_time(time);
-  }
+  return time != current_feeding_time;
 }
 
-void set_current_feeding_time(int index) {
-  current_feeding_time = index;
+void set_current_feeding_time() {
+  current_feeding_time = find_current_feeding_time();
   Serial.println(current_feeding_time, 5);
 }
