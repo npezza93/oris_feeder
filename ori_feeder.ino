@@ -6,6 +6,7 @@
 #include "wifi.h"
 #include "schedule.h"
 #include "buttons.h"
+#include "knob.h"
 #include "compartment.h"
 
 NTPClient time_client(ntpUDP, "pool.ntp.org", -4 * 3600, 60000);  // Eastern Time (UTC-4)
@@ -54,6 +55,7 @@ void setup() {
   time_client.update();
 
   load_buttons();
+  load_knob();
 
   load_current_feeding_time();
 
@@ -65,6 +67,7 @@ void setup() {
 void loop() {
   time_client.update();
   update_buttons();
+  update_knob();
 
   if (feeding_time_changed()) {
     set_current_feeding_time();
